@@ -8,6 +8,11 @@ Automated MacBook developer setup — one command to install everything.
 git clone git@github.com:erolguney/mac-dev-setup.git
 cd mac-dev-setup
 chmod +x mac-dev-setup.sh
+
+# Preview what will be installed
+./mac-dev-setup.sh --dry-run
+
+# Run the setup
 ./mac-dev-setup.sh
 ```
 
