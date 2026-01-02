@@ -1,0 +1,23 @@
+# macOS
+.DS_Store
+._*
+
+# Secrets - NEVER commit these
+*.pem
+*.key
+.env
+.env.local
+secrets/
+
+# Backup files
+*~
+*.swp
+*.swo
+
+# Machine-specific overrides (if you use them)
+local/
+*.local
+
+# Node (if you add any tooling)
+node_modules/
+

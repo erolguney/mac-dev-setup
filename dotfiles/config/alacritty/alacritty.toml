@@ -1,0 +1,46 @@
+# Alacritty terminal configuration
+
+[font]
+size = 25
+
+[font.normal]
+family = "UbuntuMono Nerd Font"
+
+[font.bold]
+family = "UbuntuMono Nerd Font"
+style = "Bold"
+
+[font.italic]
+family = "UbuntuMono Nerd Font"
+style = "Italic"
+
+[window]
+decorations = "full"
+opacity = 1.0
+dynamic_title = true
+
+[window.dimensions]
+columns = 100
+lines = 30
+
+[window.padding]
+x = 10
+y = 0
+
+[scrolling]
+history = 10000
+multiplier = 3
+
+[cursor]
+style = { shape = "Block", blinking = "On" }
+blink_interval = 750
+unfocused_hollow = true
+
+[selection]
+save_to_clipboard = true
+
+[general]
+# Gruvbox Dark theme - clone themes repo first:
+# git clone https://github.com/alacritty/alacritty-theme ~/.config/alacritty/themes
+import = ["~/.config/alacritty/themes/themes/gruvbox_dark.toml"]
+

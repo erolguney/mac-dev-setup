@@ -1,0 +1,42 @@
+# .gitconfig
+
+[user]
+	name = Your Name
+	email = your.email@example.com
+
+[init]
+	defaultBranch = main
+
+[core]
+	editor = zed --wait
+	excludesFile = ~/.config/git/ignore
+	pager = delta
+
+[pull]
+	rebase = true
+
+[push]
+	autoSetupRemote = true
+
+[fetch]
+	prune = true
+
+[rebase]
+	autoStash = true
+
+[merge]
+	conflictStyle = diff3
+
+[delta]
+	navigate = true
+	side-by-side = true
+	line-numbers = true
+
+[alias]
+	co = checkout
+	ci = commit
+	st = status
+	br = branch
+	lg = log --oneline --graph --decorate --all
+	undo = reset --soft HEAD~1
+	amend = commit --amend --no-edit

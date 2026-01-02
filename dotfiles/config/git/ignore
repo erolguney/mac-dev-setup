@@ -1,0 +1,30 @@
+# Global gitignore
+
+# macOS
+.DS_Store
+._*
+
+# Editors
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# Languages
+__pycache__/
+*.pyc
+node_modules/
+target/
+*.class
+
+# Environment & Secrets
+.env
+.env.local
+*.pem
+*.key
+
+# Build
+dist/
+build/
+*.log
