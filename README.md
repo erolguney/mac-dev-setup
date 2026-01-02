@@ -49,3 +49,7 @@ dotfiles/           # Config files (.zshrc, .gitconfig, alacritty, etc.)
 ## License
 
 MIT
+
+---
+
+*Last updated: January 2, 2026*
