@@ -1,0 +1,75 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  dry-run:
+    name: Dry Run
+    runs-on: macos-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Run dry-run
+        run: ./mac-dev-setup.sh --dry-run
+
+  install:
+    name: Full Install
+    runs-on: macos-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Run setup
+        run: ./mac-dev-setup.sh
+
+      - name: Verify Homebrew
+        run: brew --version
+
+      - name: Verify CLI tools
+        run: |
+          echo "Checking git..."
+          git --version
+          echo "Checking git-delta..."
+          delta --version
+          echo "Checking gh..."
+          gh --version
+          echo "Checking ripgrep..."
+          rg --version
+          echo "Checking fd..."
+          fd --version
+          echo "Checking bat..."
+          bat --version
+          echo "Checking fzf..."
+          fzf --version
+          echo "Checking jq..."
+          jq --version
+          echo "Checking fnm..."
+          fnm --version
+          echo "Checking pnpm..."
+          pnpm --version
+          echo "Checking uv..."
+          uv --version
+
+      - name: Verify dotfiles linked
+        run: |
+          echo "Checking symlinks..."
+          ls -la ~/.zshrc
+          ls -la ~/.zprofile
+          ls -la ~/.gitconfig
+          ls -la ~/.config/git/ignore
+          ls -la ~/.config/alacritty/alacritty.toml
+
+      - name: Verify Oh My Zsh
+        run: |
+          echo "Checking Oh My Zsh..."
+          test -d ~/.oh-my-zsh && echo "Oh My Zsh installed"
+
+      - name: Verify Alacritty themes
+        run: |
+          echo "Checking Alacritty themes..."
+          test -d ~/.config/alacritty/themes && echo "Alacritty themes cloned"
