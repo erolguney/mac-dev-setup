@@ -5,7 +5,7 @@ Automated MacBook developer setup — one command to install everything.
 ## Quick Start
 
 ```bash
-git clone https://github.com/<YOUR_USERNAME>/mac-dev-setup.git ~/mac-dev-setup
+git clone git@github.com:erolguney/mac-dev-setup.git ~/mac-dev-setup
 cd ~/mac-dev-setup
 chmod +x mac-dev-setup.sh
 ./mac-dev-setup.sh
