@@ -48,7 +48,7 @@ link_file() {
     if [[ -e "$dest" && ! -L "$dest" ]]; then
       echo "  [dry-run] Would backup: $dest"
     fi
-    echo "  [dry-run] Would link: $dest -> $src"
+    echo "  [dry-run] Would link $dest by running: ln -sfn \"$src\" \"$dest\""
     return
   fi
 
@@ -69,7 +69,7 @@ if xcode-select -p >/dev/null 2>&1; then
   echo "  ✓ Already installed"
 else
   if $DRY_RUN; then
-    echo "  [dry-run] Would install Xcode Command Line Tools"
+    echo "  [dry-run] Would install Xcode Command Line Tools by running: xcode-select --install"
   else
     echo "  ✗ Not found, installing..."
     xcode-select --install
@@ -87,7 +87,7 @@ if command -v brew >/dev/null 2>&1; then
   echo "  ✓ Already installed"
 else
   if $DRY_RUN; then
-    echo "  [dry-run] Would install Homebrew"
+    echo "  [dry-run] Would install Homebrew by running: /bin/bash -c \"\$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)\""
   else
     echo "  ✗ Not found, installing..."
     /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
@@ -102,7 +102,7 @@ fi
 echo ""
 echo "▸ Updating Homebrew..."
 if $DRY_RUN; then
-  echo "  [dry-run] Would run: brew update"
+  echo "  [dry-run] Would update Homebrew by running: brew update"
 else
   brew update
 fi
@@ -113,7 +113,9 @@ echo "▸ Checking Brewfile..."
 if [[ -f "$REPO_DIR/Brewfile" ]]; then
   echo "  Found: $REPO_DIR/Brewfile"
   if $DRY_RUN; then
-    echo "  [dry-run] Would install packages from Brewfile:"
+    echo "  [dry-run] Would install packages by running: brew bundle --file=\"$REPO_DIR/Brewfile\""
+    echo ""
+    echo "  Packages:"
     grep -E "^(brew|cask|tap) " "$REPO_DIR/Brewfile" | head -20
     echo "  ... (see Brewfile for full list)"
   else
@@ -132,7 +134,7 @@ if [[ -d "$HOME/.oh-my-zsh" ]]; then
   echo "  ✓ Already installed"
 else
   if $DRY_RUN; then
-    echo "  [dry-run] Would install Oh My Zsh"
+    echo "  [dry-run] Would install Oh My Zsh by running: sh -c \"\$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)\""
   else
     echo "  ✗ Not found, installing..."
     sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" "" --unattended
@@ -147,7 +149,7 @@ if [[ -d "$ALACRITTY_THEMES_DIR" ]]; then
   echo "  ✓ Already cloned"
 else
   if $DRY_RUN; then
-    echo "  [dry-run] Would clone alacritty-theme to $ALACRITTY_THEMES_DIR"
+    echo "  [dry-run] Would clone Alacritty themes by running: git clone https://github.com/alacritty/alacritty-theme $ALACRITTY_THEMES_DIR"
   else
     echo "  ✗ Not found, cloning..."
     mkdir -p "$HOME/.config/alacritty"
