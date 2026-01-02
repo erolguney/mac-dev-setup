@@ -141,7 +141,36 @@ else
   fi
 fi
 
-# 5) Alacritty themes
+# 5) Oh My Zsh plugins
+echo ""
+echo "▸ Checking Oh My Zsh plugins..."
+ZSH_CUSTOM="${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}"
+
+if [[ -d "$ZSH_CUSTOM/plugins/zsh-autosuggestions" ]]; then
+  echo "  ✓ zsh-autosuggestions already installed"
+else
+  if $DRY_RUN; then
+    echo "  [dry-run] Would install zsh-autosuggestions by running: git clone https://github.com/zsh-users/zsh-autosuggestions $ZSH_CUSTOM/plugins/zsh-autosuggestions"
+  else
+    echo "  Installing zsh-autosuggestions..."
+    git clone --quiet https://github.com/zsh-users/zsh-autosuggestions "$ZSH_CUSTOM/plugins/zsh-autosuggestions"
+    echo "  ✓ zsh-autosuggestions installed"
+  fi
+fi
+
+if [[ -d "$ZSH_CUSTOM/plugins/zsh-syntax-highlighting" ]]; then
+  echo "  ✓ zsh-syntax-highlighting already installed"
+else
+  if $DRY_RUN; then
+    echo "  [dry-run] Would install zsh-syntax-highlighting by running: git clone https://github.com/zsh-users/zsh-syntax-highlighting $ZSH_CUSTOM/plugins/zsh-syntax-highlighting"
+  else
+    echo "  Installing zsh-syntax-highlighting..."
+    git clone --quiet https://github.com/zsh-users/zsh-syntax-highlighting "$ZSH_CUSTOM/plugins/zsh-syntax-highlighting"
+    echo "  ✓ zsh-syntax-highlighting installed"
+  fi
+fi
+
+# 6) Alacritty themes
 echo ""
 echo "▸ Checking Alacritty themes..."
 ALACRITTY_THEMES_DIR="$HOME/.config/alacritty/themes"
@@ -158,7 +187,7 @@ else
   fi
 fi
 
-# 6) Symlink dotfiles
+# 7) Symlink dotfiles
 echo ""
 echo "▸ Symlinking dotfiles..."
 
