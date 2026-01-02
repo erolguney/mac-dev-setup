@@ -43,10 +43,6 @@ brew "curl"             # HTTP client
 brew "wget"             # HTTP client
 brew "httpie"           # User-friendly HTTP client
 
-# Development
-brew "tmux"             # Terminal multiplexer
-brew "direnv"           # Per-directory environment variables
-
 # Node.js
 brew "fnm"              # Fast Node version manager (Rust-based)
 brew "pnpm"             # Fast, disk-efficient package manager
@@ -57,7 +53,6 @@ brew "uv"               # Fast Python package manager (replaces pip, venv, pyenv
 # Other languages (uncomment as needed)
 # brew "go"
 # brew "rustup"
-# brew "openjdk"
 
 # Docker & Containers
 brew "docker-compose"   # Docker compose (if using Docker Desktop)
@@ -87,12 +82,11 @@ cask "postman"          # API testing
 # cask "tableplus"      # Database GUI
 
 # Productivity
-cask "raycast"          # Spotlight replacement
-cask "rectangle"        # Window management
-cask "1password"        # Password manager
-cask "notion"           # Notes & docs
-# cask "obsidian"       # Alternative note-taking
-# cask "linear-linear"  # Issue tracking
+# cask "raycast"          # Spotlight replacement
+# cask "rectangle"        # Window management
+# cask "1password"        # Password manager
+cask "obsidian"         # Notes & docs
+cask "linear-linear"    # Issue tracking
 
 # Communication
 cask "slack"            # Team chat
